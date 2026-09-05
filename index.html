@@ -448,5 +448,44 @@
 
 </main>
 
+<script>
+    // =========================================================
+    // PROFILER
+    // =========================================================
+
+    const PROFILER_URL = "https://tundeadetunji2017.bsite.net/api/regular.ashx";
+    const PROFILER_USERNAME = "tundeadetunji2017@gmail.com";
+    const PROFILER_ID = "2e42396c-f2bc-4a41-b2b2-fa6409a5c5ab";
+    const PROFILER_TAG = "HomePage";
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const url = new URL(PROFILER_URL);
+
+        url.searchParams.set("username", PROFILER_USERNAME);
+        url.searchParams.set("id", PROFILER_ID);
+        url.searchParams.set("intent", "UpdateCount");
+        url.searchParams.set("tag", PROFILER_TAG);
+
+        fetch(url.toString(), {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: new URLSearchParams({
+                Sender: "IGNORE",
+                Target: "IGNORE",
+                Purpose: "IGNORE",
+                Meta: "IGNORE",
+                Info: "IGNORE"
+            }),
+            keepalive: true
+        }).catch(function () {
+            // Deliberately ignore profiler failures.
+        });
+
+    });
+</script>
+
 </body>
 </html>
